@@ -19,8 +19,6 @@ class NotesHandler {
 
             const noteId = await this._service.addNote({title, body, tags});
 
-            // console.log(id);
-
             const response = h.response({
                 status: 'success',
                 message: 'Catatan berhasil ditambahkan',
@@ -98,7 +96,6 @@ class NotesHandler {
         try {
             this._validator.validateNotePayload(request.payload);
             const {id} = request.params;
-            // console.log(request.params.id);
 
             await this._service.editNoteById(id, request.payload);
 
