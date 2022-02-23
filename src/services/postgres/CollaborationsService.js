@@ -1,6 +1,5 @@
 const { nanoid } = require("nanoid");
 const { Pool } = require("pg");
-const AuthorizationError = require("../../exceptions/AuthorizationError");
 const InvariantError = require('../../exceptions/InvariantError');
 
 class CollaborationsService {
@@ -12,7 +11,7 @@ class CollaborationsService {
         const id = `collab-${nanoid(16)}`;
 
         const query = {
-            text: 'INSERT INTO collaborations VALUEs($1, $2, $3) RETURNING id',
+            text: 'INSERT INTO collaborations VALUES($1, $2, $3) RETURNING id',
             values: [id, noteId, userId],
         };
 

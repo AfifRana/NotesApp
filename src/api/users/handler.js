@@ -25,6 +25,7 @@ class UsersHandler {
         },
       });
       response.code(201);
+      // console.log(response.status);
       return response;
 
     } catch (error) {
@@ -34,6 +35,7 @@ class UsersHandler {
           message: error.message,
         });
         response.code(error.statusCode);
+        // console.error(error);
         return response;
       }
 
